@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sample_firebase/config/local_notification_service.dart';
 import 'package:sample_firebase/model/user.dart';
 
 class HomeController extends GetxController {
@@ -59,5 +60,13 @@ class HomeController extends GetxController {
     );
     db.collection("users").add(newUser.toJson()).then((DocumentReference doc) =>
         print('DocumentSnapshot added with ID: ${doc.id}'));
+  }
+
+  void sendLocalNotification()async{
+    await LocalNotificationService.show(
+      id: 1,
+      title: 'Flutter Local Notification',
+      desc: 'Flutter Local Notification Demo',
+    );
   }
 }

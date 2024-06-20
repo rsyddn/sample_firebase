@@ -31,7 +31,11 @@ class HomeView extends GetView<HomeController> {
           ElevatedButton(
             onPressed: () => controller.addData(),
             child: Text("Add Data"),
-          )
+          ),
+          ElevatedButton(
+            onPressed: () => controller.sendLocalNotification(),
+            child: Text("Send Notification from Flutter Local Notification"),
+          ),
         ],
       ),
     );
